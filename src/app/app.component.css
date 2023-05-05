@@ -1,0 +1,25 @@
+h2{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.navbar{
+    background-color: black;
+}
+
+.btn-list{
+    padding: 10px 24px;
+    background-color: black;
+    border: white;
+    color: white;
+    margin-right: 100px;
+}
+
+.btn-add{
+    padding: 10px 24px;
+    background-color: black;
+    border-left-color: white;
+    color: white;
+    margin-left: -100px;
+    border-radius: 0%;
+    
+}
