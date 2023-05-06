@@ -4,43 +4,46 @@
             <h3 class="text-center"> Add Employee </h3>
             <hr />
             <div class="card-body">
-                <form (ngSubmit)="onSubmit()">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
                    
                     <div class="form-group">
                         <label> First Name</label>
-                        <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName"
-                            name="firstName" placeholder="Enter first name">
+                        <input type="text" formControlName="firstName" class="form-control" id="firstName" [(ngModel)]="employee.firstName" [ngClass]="{'is-invalid':submitted && registerForm.controls['firstName'].errors}" 
+                            placeholder="Enter first name"  required>
+
+
                     </div>
 
                     <div class="form-group">
                         <label> Last Name</label>
-                        <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName"
-                            name="lastName" placeholder="Enter last name">
+                        <input type="text" formControlName="lastName" class="form-control" id="lastName" [(ngModel)]="employee.lastName" [ngClass]="{'is-invalid':submitted && registerForm.controls['lastName'].errors}" 
+                           placeholder="Enter last name">
                     </div>
 
                     <div class="form-group">
                         <label> Email </label>
-                        <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.email"
-                            name="emailId" placeholder="Enter email">
+                        <input type="email" formControlName="email" class="form-control" id="emailId" [(ngModel)]="employee.email" [ngClass]="{'is-invalid':submitted && registerForm.controls['email'].errors}" 
+                             placeholder="Enter email">
                     </div>
 
                     <div class="form-group">
                         <label> Contact Number </label>
-                        <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.contact"
-                            name="emailId" placeholder="Enter contact number">
+                        <input type="text" formControlName="contact" class="form-control" id="contact" [(ngModel)]="employee.contact" [ngClass]="{'is-invalid':submitted && registerForm.controls['contact'].errors}" 
+                            name="contact" placeholder="Enter contact number">
                     </div>
 
                     <div class="form-group">
                         <label> Department</label>
-                        <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.department"
-                            name="emailId" placeholder="Enter department">
+                        <input type="text" formControlName="department" class="form-control" id="department" [(ngModel)]="employee.department" [ngClass]="{'is-invalid':submitted && registerForm.controls['department'].errors}" 
+                            placeholder="Enter department">
                     </div>
                
                     <br />
                     <button class="btn btn-success" style ="background-color: gray;" type="submit">Submit</button>
 
                 </form>
+                
             </div>
         </div>
     </div>

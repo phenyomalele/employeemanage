@@ -10,31 +10,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateEmployeeComponent implements OnInit {
 
-  employee_Id: number;
+  employeeId: number;
   employee: Employee = new Employee();
-  constructor(private employeeService: EmployeeService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(private employeeService: EmployeeService , private route: ActivatedRoute , private router: Router) { }
 
-    ngOnInit(): void {
-      this.employee_Id = this.route.snapshot.params['id'];
-  
-      this.employeeService.getEmployeeById(this.employee_Id).subscribe(data => {
-        this.employee = data;
-      }, error => console.log(error));
-    }
+  ngOnInit(): void {
+    this.onSubmit();
+   this.employeeId = this.route.snapshot.params['id'];
 
-    onSubmit(){
-      
-      this.employeeService.updateEmployee(this.employee_Id, this.employee).subscribe((data:any) =>{
-        
-        this.goToEmployeeList();
-     
-      }
-      , error => console.log(error));
-    }
+    this.employeeService.getEmployeeById(this.employeeId).subscribe(data => {
+      this.employee = data;
+      console.log(this.employeeId)
+    }, error => console.log(error));
+  }
 
-    goToEmployeeList(){
+  onSubmit(){
+    this.employeeId = this.route.snapshot.params['id'];
+    this.employeeService.updateEmployee(this.employeeId, this.employee).subscribe((data:any) =>{
       this.router.navigate(['/employees']);
+
+
     }
+    , error => console.log(error));
+  }
+
+  goToEmployeeList(){
+    this.router.navigate(['/employees']);
+  }
 }

@@ -4,12 +4,12 @@
             <h3 class="text-center"> Update Employee </h3>
             <hr />
             <div class="card-body">
-                <form (ngSubmit)="onSubmit()">
+                <form >
 
                     <div class="form-group">
                         <label> First Name</label>
-                        <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName"
-                            name="firstName" placeholder="Enter first name">
+                        <input type="text"  class="form-control" id="firstName" [(ngModel)]="employee.firstName" 
+                        name="firstName" placeholder="Enter first name">
                     </div>
 
                     <div class="form-group">
@@ -25,17 +25,19 @@
                     </div>
                     <div class="form-group">
                         <label> Department </label>
-                        <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.department"
-                            name="emailId" placeholder="Enter department">
+                        <input type="text" class="form-control" id="department" [(ngModel)]="employee.department"
+                            name="department" placeholder="Enter department">
                     </div>
 
                     <div class="form-group">
                         <label> Contact </label>
-                        <input type="text" class="form-control" id="emailId" [(ngModel)]="employee.contact"
-                            name="emailId" placeholder="Enter contact number">
+                        <input type="text" class="form-control" id="contact" [(ngModel)]="employee.contact"
+                            name="contact" placeholder="Enter contact number">
                     </div>
+
+                    
                     <br />
-                    <button class="btn btn-success" style ="color: gray;" type="submit" routerLink="">Submit</button>
+                    <button class="btn btn-success" style ="color: white; " type="submit" (click)="onSubmit()"  routerLink="">Submit</button>
 
                 </form>
             </div>

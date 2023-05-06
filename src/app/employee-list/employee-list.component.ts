@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit{
 
   employees: Employee[];
+searchText: any;
 
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
@@ -26,20 +27,24 @@ export class EmployeeListComponent implements OnInit{
     });
   }
 
-  employeeDetails(employee_Id: number){
-    this.router.navigate(['employee-details', employee_Id]);
+  employeeDetails(employeeId: number){
+    this.router.navigate(['employee-details', employeeId]);
   }
 
-  updateEmployee(employee_Id: number){
-    this.router.navigate(['update-employee', employee_Id]);
+  updateEmployee(employeeId: number){
+    this.router.navigate(['update-employee', employeeId]);
   }
 
-  deleteEmployee(employee_Id: number){
-    this.employeeService.deleteEmployee(employee_Id).subscribe( data => {
+  deleteEmployee(employeeId: number){
+    if(confirm('Are you sure you want to delete the record ?'))
+    this.employeeService.deleteEmployee(employeeId).subscribe( data => {
       console.log(data);
       this.getEmployees();
+      alert('Record Deleted Successfully !')
     })
+   
   }
+  
 }
 
 
